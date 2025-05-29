@@ -2,10 +2,10 @@
 #include "ArrayTransformer.h"
 
 template<typename Container>
-class HoarSortTransformer : public ArrayTransformer<Container>
+class KoaraSortTransformer : public ArrayTransformer<Container>
 {
 public:
-	HoarSortTransformer() = default;
+
 //"сортувати масиви без допомоги вбудованих функцій". Вбудованних функцій? Своя функція Swap :)
 	virtual void TransformOne(Container& Con) override
 	{
@@ -23,7 +23,7 @@ public:
 		KhoaraSort(Con3, 0, Con3.size() - 1);
 	};
 private:
-
+	KoaraSortTransformer() = default;
 	void KhoaraSort(Container& Con, size_t left, size_t right);
 };
 

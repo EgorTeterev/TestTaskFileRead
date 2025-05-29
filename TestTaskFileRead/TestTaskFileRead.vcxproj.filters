@@ -16,9 +16,6 @@
     <Filter Include="Source Files\Transforms">
       <UniqueIdentifier>{b33ffa83-2632-45b0-a2e4-40ec91d2c80c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Source Files\Transforms\Sort">
-      <UniqueIdentifier>{b21d5ea3-4f90-4081-ad71-73855baf96d2}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Source Files\Misc">
       <UniqueIdentifier>{819f934a-8c1a-40be-94b5-01110c3edb79}</UniqueIdentifier>
     </Filter>
@@ -31,6 +28,9 @@
     <Filter Include="Source Files\Misc\FileSystem">
       <UniqueIdentifier>{76b895b9-644e-47a9-86c5-a0582c9ab112}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Transforms\SpecificTransforms">
+      <UniqueIdentifier>{b21d5ea3-4f90-4081-ad71-73855baf96d2}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestTaskFileRead.cpp">
@@ -40,7 +40,7 @@
       <Filter>Source Files\Transforms</Filter>
     </ClCompile>
     <ClCompile Include="KhoaraSortTransformer.h">
-      <Filter>Source Files\Transforms\Sort</Filter>
+      <Filter>Source Files\Transforms\SpecificTransforms</Filter>
     </ClCompile>
     <ClCompile Include="Templates.h">
       <Filter>Source Files\Misc\Templates</Filter>
@@ -66,7 +66,13 @@
       <Filter>Source Files\Transforms</Filter>
     </ClInclude>
     <ClInclude Include="ReverseTransformer.h">
-      <Filter>Source Files\Transforms\Sort</Filter>
+      <Filter>Source Files\Transforms\SpecificTransforms</Filter>
+    </ClInclude>
+    <ClInclude Include="FindCollisionTransformer.h">
+      <Filter>Source Files\Transforms\SpecificTransforms</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverseSortedCollisionTransformer.h">
+      <Filter>Source Files\Transforms\SpecificTransforms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
