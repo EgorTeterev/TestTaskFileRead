@@ -97,8 +97,8 @@ int main()
 або двома символами одночасно".
 
 File ReadArrays.txt:
-12516,1,16, 15,610,32,161,491, 204 161 2151 1964 129 4939 921 5312 312 11 521\r\n - first arr line
-12,125,7,1234,634,1 124, 74 23 11 22 1 1 24, 21\r\n                       - second arr line
+12516,1,16 15, 3 610,32,161, 21 491,2 204 161 2151 43 1964 129 4939 921 5312 312 11 521\r\n - first arr line
+12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                       - second arr line
 105,270,15 21 3165, 32,15 215 22 22(EOF)                                  - third arr line
 
 */
@@ -107,11 +107,16 @@ File ReadArrays.txt:
 	std::vector<int> First,Second,Third;
 
 	FitFileLineToContainer<std::vector<int>,int>(Stream, First);
+	FitFileLineToContainer<std::vector<int>, int>(Stream, Second,2);
 
-	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Sort);
+	//ConsoleVector(&First);
+	//ConsoleVector(&Second);
 
-	Transformer->TransformOne(First);
-	ConsoleVector(&First);
+	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::FindCollision);
+
+	std::vector<int>* CollisionResult = Transformer->TransformTwoWithResult(First,Second);
+
+	ConsoleVector(CollisionResult);
 
 
 }

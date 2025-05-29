@@ -25,19 +25,17 @@ public:
 		KhoaraSort(Con3, 0, Con3.size() - 1);
 	};
 
-	[[nodiscard]] virtual Container* TransformOneWithResult(Container& Con) override{};
+	virtual Container* TransformOneWithResult(const Container& Con) override { return nullptr; };
 
 	//first container will get the result
-	[[nodiscard]] virtual Container* TransformTwoWithResult(Container& Con1, Container& Con2) override{};
+	virtual Container* TransformTwoWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
 
 	//first container will get the result
-	[[nodiscard]] virtual Container* TransformThreeWithResult(Container& Con1, Container& Con2, Container& Con3) override{};
+	virtual Container* TransformThreeWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override{ return nullptr; };
 private:
 	KhoaraSortTransformer() = default;
 	void KhoaraSort(Container& Con, size_t left, size_t right);
 };
-
-
 
 template <typename Container>
 void KhoaraSortTransformer<Container>::KhoaraSort(Container& Con, size_t left, size_t right)

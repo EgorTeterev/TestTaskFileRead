@@ -27,6 +27,14 @@ public:
 		ReverseArray(Con2);
 		ReverseArray(Con3);
 	};
+
+
+	virtual Container* TransformOneWithResult(const Container& Con) override { return nullptr; };
+
+	virtual Container* TransformTwoWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
+
+	virtual Container* TransformThreeWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override { return nullptr; };
+
 private:
 	ReverseTransformer() = default;
 	void ReverseArray(Container& VectorToSort);
