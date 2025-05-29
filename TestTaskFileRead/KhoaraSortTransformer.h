@@ -7,11 +7,21 @@ class HoarSortTransformer : public ArrayTransformer<Container>
 public:
 	HoarSortTransformer() = default;
 //"сортувати масиви без допомоги вбудованих функцій". Вбудованних функцій? Своя функція Swap :)
-	virtual void Transform(Container& Con) override
+	virtual void TransformOne(Container& Con) override
 	{
 		KhoaraSort(Con, 0, Con.size() - 1);
 	};
-
+	virtual void TransformTwo(Container& Con1, Container& Con2) override
+	{
+		KhoaraSort(Con1, 0, Con1.size() - 1);
+		KhoaraSort(Con2, 0, Con2.size() - 1);
+	};
+	virtual void TransformThree(Container& Con1, Container& Con2, Container& Con3) override
+	{
+		KhoaraSort(Con1, 0, Con1.size() - 1);
+		KhoaraSort(Con2, 0, Con2.size() - 1);
+		KhoaraSort(Con3, 0, Con3.size() - 1);
+	};
 private:
 
 	void KhoaraSort(Container& Con, size_t left, size_t right);
