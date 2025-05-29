@@ -19,6 +19,18 @@
     <Filter Include="Source Files\Transforms\Sort">
       <UniqueIdentifier>{b21d5ea3-4f90-4081-ad71-73855baf96d2}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Misc">
+      <UniqueIdentifier>{819f934a-8c1a-40be-94b5-01110c3edb79}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc\Templates">
+      <UniqueIdentifier>{0002a695-7101-49d4-b9f1-d749c70b25aa}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc\Utils">
+      <UniqueIdentifier>{923140de-4412-4f52-8a22-5f76e5e83d8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Misc\FileSystem">
+      <UniqueIdentifier>{76b895b9-644e-47a9-86c5-a0582c9ab112}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="TestTaskFileRead.cpp">
@@ -27,14 +39,17 @@
     <ClCompile Include="ArrayTransformer.h">
       <Filter>Source Files\Transforms</Filter>
     </ClCompile>
+    <ClCompile Include="KhoaraSortTransformer.h">
+      <Filter>Source Files\Transforms\Sort</Filter>
+    </ClCompile>
     <ClCompile Include="Templates.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Misc\Templates</Filter>
     </ClCompile>
     <ClCompile Include="Utils.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Misc\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="HoarSortTransform.h">
-      <Filter>Source Files\Transforms\Sort</Filter>
+    <ClCompile Include="ArrayTransformFactory.cpp">
+      <Filter>Source Files\Transforms</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -42,7 +57,16 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Utils.h">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\Misc\Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="Read.h">
+      <Filter>Source Files\Misc\FileSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ArrayTransformFactory.h">
+      <Filter>Source Files\Transforms</Filter>
+    </ClInclude>
+    <ClInclude Include="ReverseTransformer.h">
+      <Filter>Source Files\Transforms\Sort</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

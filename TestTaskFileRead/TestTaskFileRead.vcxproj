@@ -124,13 +124,17 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="ArrayTransformer.h" />
-    <ClCompile Include="HoarSortTransform.h" />
+    <ClCompile Include="KhoaraSortTransformer.h" />
     <ClCompile Include="TestTaskFileRead.cpp" />
     <ClCompile Include="Templates.h" />
+    <ClCompile Include="ArrayTransformFactory.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="PCH.h" />
+    <ClInclude Include="Read.h" />
+    <ClInclude Include="ArrayTransformFactory.h" />
+    <ClInclude Include="ReverseTransformer.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
