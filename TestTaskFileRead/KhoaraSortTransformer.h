@@ -1,64 +1,65 @@
 #pragma once
 #include "ArrayTransformer.h"
 
-template<typename Elem>
-class HoarSortTransformer : public ArrayTransformer<Elem>
+template<typename Container>
+class HoarSortTransformer : public ArrayTransformer<Container>
 {
 public:
-//"сортувати масиви без допомоги вбудованих функцій". Вбудованних функцій? Своя функція Swap
-	virtual void Transform(std::vector<Elem>& Array) override
+	HoarSortTransformer() = default;
+//"сортувати масиви без допомоги вбудованих функцій". Вбудованних функцій? Своя функція Swap :)
+	virtual void Transform(Container& Con) override
 	{
-		KhoaraSort(Array, 0, Array.size() - 1);
+		KhoaraSort(Con, 0, Con.size() - 1);
 	};
 
 private:
-	HoarSortTransformer() = default;
-	void KhoaraSort(std::vector<Elem>& VectorToSort, size_t left, size_t right);
+
+	void KhoaraSort(Container& Con, size_t left, size_t right);
 };
 
 
 
-template <typename Elem>
-void HoarSortTransformer<Elem>::KhoaraSort(std::vector<Elem>& VectorToSort, size_t left, size_t right)
+template <typename Container>
+void HoarSortTransformer<Container>::KhoaraSort(Container& Con, size_t left, size_t right)
 {
-	Elem pivot = VectorToSort[left];
+	auto pivot = Con[left];
 	int l = left;
 	int r = right;
 
 	while (left < right)
 	{
-		while ((VectorToSort[right] >= pivot) && (left < right))
+		while ((Con[right] >= pivot) && (left < right))
 		{
 			right--;
 		}
 		if (left != right)
 		{
-			VectorToSort[left] = VectorToSort[right];
+			Con[left] = Con[right];
 			left++;
 		}
-		while ((VectorToSort[left] <= pivot) && (left < right))
+		while ((Con[left] <= pivot) && (left < right))
 		{
 			left++;
 		}
 		if (left != right)
 		{
-			VectorToSort[right] = VectorToSort[left];
+			Con[right] = Con[left];
 			right--;
 		}
 	}
 
-	VectorToSort[left] = pivot;
+	Con[left] = pivot;
 	pivot = left;
 	left = l;
 	right = r;
 
 	if (left < pivot)
 	{
-		KhoaraSort(VectorToSort, left, pivot - 1);
+		KhoaraSort(Con, left, pivot - 1);
 	}
 	if (right > pivot)
 	{
-		KhoaraSort(VectorToSort, pivot + 1, right);
+		KhoaraSort(Con, pivot + 1, right);
 	}
 
 }

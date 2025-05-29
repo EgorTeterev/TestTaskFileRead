@@ -1,5 +1,5 @@
 #include "PCH.h"
-
+#include "KhoaraSortTransformer.h"
 
 //enter your file path
 #define ARRAYFILEPATH "ReadArrays.txt"
@@ -88,6 +88,35 @@ void FitFileLineToContainer(std::ifstream& Stream, Container& Con, const int Arr
 
 
 
+template <typename Container>
+Container* FindCollision(Container& Con, Container& SecondCon)
+{
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 int main()
 {
 /* 
@@ -106,6 +135,9 @@ File ReadArrays.txt:
 	std::vector<int> First,Second,Third;
 
 	FitFileLineToContainer<std::vector<int>,int>(Stream, First);
+
+	auto Transformer = HoarSortTransformer<std::vector<int>>();
+	Transformer.Transform(First);
 	ConsoleVector(&First);
 
 

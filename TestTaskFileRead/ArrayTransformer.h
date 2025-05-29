@@ -1,9 +1,9 @@
 #pragma once
 #include "PCH.h"
 
-template<typename Elem>
+template<typename Container>
 class ArrayTransformer 
 {
 public:
-	virtual void Transform(std::vector<Elem>& ArrayToTransform) = 0;
+	virtual void Transform(Container& ArrayToTransform) = 0;
 };
