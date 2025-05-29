@@ -125,9 +125,9 @@
   <ItemGroup>
     <ClCompile Include="ArrayTransformer.h" />
     <ClCompile Include="KhoaraSortTransformer.h" />
+    <ClCompile Include="Read.cpp" />
     <ClCompile Include="TestTaskFileRead.cpp" />
     <ClCompile Include="Templates.h" />
-    <ClCompile Include="ArrayTransformFactory.cpp" />
     <ClCompile Include="Utils.cpp" />
   </ItemGroup>
   <ItemGroup>

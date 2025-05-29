@@ -1,9 +1,9 @@
 #pragma once
+#include "PCH.h"
 
-namespace FileSystem
+struct FileReader
 {
-	namespace Read
-	{
+	static void ReadLineFromFile(std::ifstream& Stream, std::string& String, const int LinesToIgnore = 0);
+	static void LogLineFromFile(std::ifstream& Stream, int ArrayLine = 1);
 
-	}
-}
+};

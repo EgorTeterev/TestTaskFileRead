@@ -9,8 +9,8 @@ public:
 	virtual void TransformTwo(Container& Con1, Container& Con2) = 0;
 	virtual void TransformThree(Container& Con1, Container& Con2, Container& Con3) = 0;
 
-	virtual Container TransformOneWithResult(Container& Con) = 0;
-	virtual Container TransformTwoWithResult(Container& Con1, Container& Con2) = 0;
-	virtual Container TransformThreeWithResult(Container& Con1, Container& Con2, Container& Con3) = 0;
+	[[nodiscard]] virtual Container* TransformOneWithResult(Container& Con) = 0;
+	[[nodiscard]] virtual Container* TransformTwoWithResult(Container& Con1, Container& Con2) = 0;
+	[[nodiscard]] virtual Container* TransformThreeWithResult(Container& Con1, Container& Con2, Container& Con3) = 0;
 
 };

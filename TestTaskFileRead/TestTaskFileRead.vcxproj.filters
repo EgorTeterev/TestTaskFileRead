@@ -48,8 +48,8 @@
     <ClCompile Include="Utils.cpp">
       <Filter>Source Files\Misc\Utils</Filter>
     </ClCompile>
-    <ClCompile Include="ArrayTransformFactory.cpp">
-      <Filter>Source Files\Transforms</Filter>
+    <ClCompile Include="Read.cpp">
+      <Filter>Source Files\Misc\FileSystem</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

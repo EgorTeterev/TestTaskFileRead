@@ -1,5 +1,7 @@
 #include "PCH.h"
-
+#include "ArrayTransformFactory.h"
+template<typename T>
+class ArrayTransformer;
 
 //enter your file path
 #define ARRAYFILEPATH "ReadArrays.txt"
@@ -106,8 +108,9 @@ File ReadArrays.txt:
 
 	FitFileLineToContainer<std::vector<int>,int>(Stream, First);
 
+	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Sort);
 
-
+	Transformer->TransformOne(First);
 	ConsoleVector(&First);
 
 

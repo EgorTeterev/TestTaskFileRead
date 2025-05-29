@@ -1,12 +1,14 @@
 #pragma once
 #include "ArrayTransformer.h"
+#include "ArrayTransformerFactory.h"
 
 template<typename Container>
-class KoaraSortTransformer : public ArrayTransformer<Container>
+class KhoaraSortTransformer : public ArrayTransformer<Container>
 {
+	template<typename T>
+	friend class ArrayTransformFactory;
 public:
-
-//"сортувати масиви без допомоги вбудованих функцій". Вбудованних функцій? Своя функція Swap :)
+//"сортувати масиви без допомоги вбудованих функцій".
 	virtual void TransformOne(Container& Con) override
 	{
 		KhoaraSort(Con, 0, Con.size() - 1);
@@ -22,15 +24,23 @@ public:
 		KhoaraSort(Con2, 0, Con2.size() - 1);
 		KhoaraSort(Con3, 0, Con3.size() - 1);
 	};
+
+	[[nodiscard]] virtual Container* TransformOneWithResult(Container& Con) override{};
+
+	//first container will get the result
+	[[nodiscard]] virtual Container* TransformTwoWithResult(Container& Con1, Container& Con2) override{};
+
+	//first container will get the result
+	[[nodiscard]] virtual Container* TransformThreeWithResult(Container& Con1, Container& Con2, Container& Con3) override{};
 private:
-	KoaraSortTransformer() = default;
+	KhoaraSortTransformer() = default;
 	void KhoaraSort(Container& Con, size_t left, size_t right);
 };
 
 
 
 template <typename Container>
-void HoarSortTransformer<Container>::KhoaraSort(Container& Con, size_t left, size_t right)
+void KhoaraSortTransformer<Container>::KhoaraSort(Container& Con, size_t left, size_t right)
 {
 	auto pivot = Con[left];
 	int l = left;

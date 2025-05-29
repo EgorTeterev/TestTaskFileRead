@@ -2,9 +2,12 @@
 #include "ArrayTransformer.h"
 #include "ArrayTransformerFactory.h"
 
+
 template<typename Container>
 class ReverseTransformer : public ArrayTransformer<Container>
 {
+	template<typename T>
+	friend class ArrayTransformFactory;
 public:
 
 	virtual void TransformOne(Container& Con) override
@@ -34,3 +37,5 @@ void ReverseTransformer<Container>::ReverseArray(Container& Con)
 {
 	std::reverse(Con.begin(), Con.end());
 }
+
+
