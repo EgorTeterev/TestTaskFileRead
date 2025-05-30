@@ -16,8 +16,6 @@ void FileReader::ReadLineFromFile(std::ifstream& Stream, std::string& String, co
 		return;
 	}
 
-
-	//skip file lines, that are already processed
 	if (LinesToIgnore > 0)
 	{
 		for (int i = 0; i < LinesToIgnore; ++i)

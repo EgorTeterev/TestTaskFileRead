@@ -28,13 +28,14 @@ void Swap(Elem& Elem1, Elem Elem2)
 	Elem2 = temp;
 }
 
+//Викликає фільтрацію строки, запихує відфільтровану строку у контейнер
 template <typename Container, typename Elem>
 void FilterStringToContainer(Container& Con, std::string& String)
 {
 	FormatString(String);
 
-	//extract int,push to vector and delete all until next space
 	size_t Deleate = 0;
+	//Бере число зі строки, запихує у контейнер, видаляє число,і йде до наступного
 	while ((Deleate = String.find(" ")) != std::string::npos)
 	{
 		int IntFromString = std::stoi(String, 0);
@@ -68,7 +69,6 @@ void FitFileLineToContainer(std::ifstream& Stream, Container& Con, const int Arr
 		FileReader::ReadLineFromFile(Stream, TempString, 0);
 	}
 
-//фільтрує отриману строку (видаля коми, та зайві пробіли), та запихує в контейнер
 	FilterStringToContainer<Container, Elem>(Con, TempString);
 
 }

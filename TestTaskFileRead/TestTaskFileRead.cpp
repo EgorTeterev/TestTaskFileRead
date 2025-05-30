@@ -37,29 +37,21 @@ File ReadArrays.txt:
 
 
 //"друкувати вміст масивів"
-	//FileReader::LogLineFromFile(Stream); // з файлу
-	//ConsoleCon(&First);                  // просто масив
-
+	FileReader::LogLineFromFile(Stream); // з файлу
+	ConsoleCon(&First);                  // просто масив
 
 
 //"сортувати масиви без допомоги вбудованих функцій"
-//до    12516 1 16 15 3 610 32 161 21 491 2 204 161 2151 43 1964 129 4939 921 5312 312 22 11 521
+	//ConsoleCon(&First);
 	SortTransformer->Transform(First);
-//після 1 2 3 11 15 16 21 22 32 43 129 161 161 204 312 491 521 610 921 1964 2151 4939 5312 12516
+	//ConsoleCon(&First);
 
 
 
 //"знаходити перетин масивів(двох з найбільшою довгою та всіх трьох)"
 	std::vector<int>* CollisionResult = FindCollisionTransformer->TransformWithResult(First, Second, Third);
 
-	//ConsoleCon(&First);
-	//ConsoleCon(&Second);
-	//ConsoleCon(&Third);
-
-
 //"створювати відсортований у зворотному порядку масив, що містить лише унікальні елементи з трьох представлених масивів"
-
 	ReverseTransformer->Transform(*CollisionResult);
-	ConsoleCon(CollisionResult);
-
+	//ConsoleCon(CollisionResult);
 }

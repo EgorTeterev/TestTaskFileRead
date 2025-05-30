@@ -32,7 +32,6 @@ void FormatString(std::string& str)
 		str.replace(str.find("  "), 2, " ");
 	}
 
-	//if first two elements were spaces - delete unnecessary space, in [0]
 	if (str[0] == ' ')
 	{
 		str.erase(0, 1);

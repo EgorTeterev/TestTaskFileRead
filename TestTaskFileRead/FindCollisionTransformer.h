@@ -33,7 +33,6 @@ public:
 		return Result;
 	};
 
-	//first container will get the result
 	virtual Container* TransformWithResult(Container& Con1,Container& Con2, Container& Con3) override
 	{
 		Container* Result = new Container();
