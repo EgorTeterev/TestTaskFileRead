@@ -38,4 +38,6 @@ void FileReader::LogLineFromFile(std::ifstream& Stream, int ArrayLine)
 	{
 		FileReader::ReadLineFromFile(Stream, Line, ArrayLine - 1);
 	}
+	
+	ConsoleSTDString(&Line);
 }

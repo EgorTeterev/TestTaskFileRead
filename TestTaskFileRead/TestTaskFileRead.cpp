@@ -37,8 +37,8 @@ File ReadArrays.txt:
 
 
 //"друкувати вміст масивів"
-	FileReader::LogLineFromFile(Stream); // з файлу
-	ConsoleCon(&First);                  // просто масив
+	//FileReader::LogLineFromFile(Stream); // з файлу
+	//ConsoleCon(&First);                  // просто масив
 
 
 //"сортувати масиви без допомоги вбудованих функцій"
