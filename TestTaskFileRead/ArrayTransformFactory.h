@@ -1,7 +1,6 @@
 #pragma once
 #include "FindCollisionTransformer.h"
 #include "KhoaraSortTransformer.h"
-#include "ReverseSortedCollisionTransformer.h"
 #include "ReverseTransformer.h"
 
 
@@ -10,7 +9,6 @@ enum class TransformClasses
 	FindCollision,
 	Sort,
 	Reverse,
-	ReverseSortedCollisionTransformer
 };
 
 template<typename Container>
@@ -35,11 +33,6 @@ public:
 			{
 				return new ReverseTransformer<Container>();
 					break;
-			}
-			case(TransformClasses::ReverseSortedCollisionTransformer):
-			{
-				return new ReverseSortedCollisionTransformer<Container>();
-				break;
 			}
 
 		}

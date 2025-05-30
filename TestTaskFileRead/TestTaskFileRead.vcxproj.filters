@@ -71,8 +71,5 @@
     <ClInclude Include="FindCollisionTransformer.h">
       <Filter>Source Files\Transforms\SpecificTransforms</Filter>
     </ClInclude>
-    <ClInclude Include="ReverseSortedCollisionTransformer.h">
-      <Filter>Source Files\Transforms\SpecificTransforms</Filter>
-    </ClInclude>
   </ItemGroup>
 </Project>

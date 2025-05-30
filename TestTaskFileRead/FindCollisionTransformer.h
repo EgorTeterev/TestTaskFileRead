@@ -77,21 +77,12 @@ void FindCollisionTransformer<Container>::FindCollision(Container* Result, Conta
 		std::sort(Con2.begin(), Con2.end());
 
 		std::set_intersection(Con1.begin(), Con1.end(), Con2.begin(), Con2.end(), back_inserter(TempCon));
-
-		//ConsoleCon(&Con1);
-		//ConsoleCon(&Con2);
-		//std::cout << "\n";
-		//ConsoleCon(&TempCon);
-		//1 2 3 11 16 21 22 43
-		//105,270,15 21 3165, 32,15 215 22 22, 3 ,43, 16
 	}
 	
 	if (Con3.size() > 0)
 	{
 		std::sort(Con3.begin(), Con3.end());
 		std::set_intersection(TempCon.begin(), TempCon.end(), Con3.begin(), Con3.end(), back_inserter(*Result));
-		//ConsoleCon(Result);
-		//3 16 21 22 43
 	}
 
 	auto it = std::unique(Result->begin(), Result->end());

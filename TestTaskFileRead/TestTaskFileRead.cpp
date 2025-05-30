@@ -12,29 +12,54 @@ class ArrayTransformer;
 int main()
 {
 /* 
-"Буде дано текстовий файл, де в рядок буде задекларовано три масиви цілих чисел.
-Кожен масив описується окремим рядком числа розділені або пробілом, або комою,
-або двома символами одночасно".
-
 File ReadArrays.txt:
 12516,1,16 15, 3 610,32,161, 21 491,2 204 161 2151 43 1964 129 4939 921 5312 312 22 11 521\r\n - first arr line
 12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                               - second arr line
 105,270,15 21 3165, 32,15 215 22 22, 3 ,43, 16(EOF)                                            - third arr line
-
 */
 
-	std::ifstream Stream(ARRAYFILEPATH);
-	std::vector<int> First,Second,Third;
+//"Функції маніпуляцій над масивами необхідно оформити через фабрику... абстрактний клас ArrayTransformer ..."
+	ArrayTransformer<std::vector<int>>* SortTransformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Sort);
+	ArrayTransformer<std::vector<int>>* ReverseTransformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Reverse);
+	ArrayTransformer<std::vector<int>>* FindCollisionTransformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::FindCollision);
 
-	FitFileLineToContainer<std::vector<int>,int>(Stream, First);
-	FitFileLineToContainer<std::vector<int>, int>(Stream, Second,2);
+
+	std::ifstream Stream(ARRAYFILEPATH);
+	std::vector<int> First, Second, Third;
+
+
+//"Програма має вміти"
+//"зчитувати масиви з файлу"
+	FitFileLineToContainer<std::vector<int>, int>(Stream, First);
+	FitFileLineToContainer<std::vector<int>, int>(Stream, Second, 2);
 	FitFileLineToContainer<std::vector<int>, int>(Stream, Third, 3);
 
 
-	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::FindCollision);
 
-	std::vector<int>* CollisionResult = Transformer->TransformWithResult(Second, First,Third);
-	//ConsoleCon(CollisionResult);
+//"друкувати вміст масивів"
+	//FileReader::LogLineFromFile(Stream); // з файлу
+	//ConsoleCon(&First);                  // просто масив
 
+
+
+//"сортувати масиви без допомоги вбудованих функцій"
+//до    12516 1 16 15 3 610 32 161 21 491 2 204 161 2151 43 1964 129 4939 921 5312 312 22 11 521
+	SortTransformer->Transform(First);
+//після 1 2 3 11 15 16 21 22 32 43 129 161 161 204 312 491 521 610 921 1964 2151 4939 5312 12516
+
+
+
+//"знаходити перетин масивів(двох з найбільшою довгою та всіх трьох)"
+	std::vector<int>* CollisionResult = FindCollisionTransformer->TransformWithResult(First, Second, Third);
+
+	//ConsoleCon(&First);
+	//ConsoleCon(&Second);
+	//ConsoleCon(&Third);
+
+
+//"створювати відсортований у зворотному порядку масив, що містить лише унікальні елементи з трьох представлених масивів"
+
+	ReverseTransformer->Transform(*CollisionResult);
+	ConsoleCon(CollisionResult);
 
 }

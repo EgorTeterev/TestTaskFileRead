@@ -44,7 +44,8 @@ void FilterStringToContainer(Container& Con, std::string& String)
 	}
 }
 
-//"щоб вони могли приймати будь-які типи даних, що ітеруються з STL"
+//Очікує Потік, Контейнер, Номер строки для чтіння (1 по дефолту)
+//Читає строку з файлу, запихує у std::string, фільтруе строку та запихує в контейнер
 template <typename Container, typename Elem>
 void FitFileLineToContainer(std::ifstream& Stream, Container& Con, const int ArrayLine = 1)
 {
@@ -55,15 +56,19 @@ void FitFileLineToContainer(std::ifstream& Stream, Container& Con, const int Arr
 	}
 	std::string TempString;
 
+//Якщо строка для чтіння більше за 1, треба проігнорувати декілька строк
 	if (ArrayLine > 0)
 	{
+		//Якщо треба читати строку n - треба проігнорувати строки n-1, до неї
 		FileReader::ReadLineFromFile(Stream, TempString, ArrayLine - 1);
 	}
 	else
 	{
-		FileReader::ReadLineFromFile(Stream, TempString, ArrayLine);
+		//при від'ємному - читає перший рядок, при 0 - теж
+		FileReader::ReadLineFromFile(Stream, TempString, 0);
 	}
 
+//фільтрує отриману строку (видаля коми, та зайві пробіли), та запихує в контейнер
 	FilterStringToContainer<Container, Elem>(Con, TempString);
 
 }

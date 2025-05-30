@@ -135,7 +135,6 @@
     <ClInclude Include="PCH.h" />
     <ClInclude Include="Read.h" />
     <ClInclude Include="ArrayTransformFactory.h" />
-    <ClInclude Include="ReverseSortedCollisionTransformer.h" />
     <ClInclude Include="ReverseTransformer.h" />
     <ClInclude Include="Utils.h" />
   </ItemGroup>
