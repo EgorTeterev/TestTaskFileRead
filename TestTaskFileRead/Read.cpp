@@ -28,6 +28,8 @@ void FileReader::ReadLineFromFile(std::ifstream& Stream, std::string& String, co
 
 	std::getline(Stream, String, '\n');
 
+	//should close?
+
 	return;
 }
 

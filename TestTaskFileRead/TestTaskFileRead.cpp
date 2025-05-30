@@ -17,9 +17,9 @@ int main()
 або двома символами одночасно".
 
 File ReadArrays.txt:
-12516,1,16 15, 3 610,32,161, 21 491,2 204 161 2151 43 1964 129 4939 921 5312 312 11 521\r\n - first arr line
-12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                            - second arr line
-105,270,15 21 3165, 32,15 215 22 22, 3 ,43, 16(EOF)                                         - third arr line
+12516,1,16 15, 3 610,32,161, 21 491,2 204 161 2151 43 1964 129 4939 921 5312 312 22 11 521\r\n - first arr line
+12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                               - second arr line
+105,270,15 21 3165, 32,15 215 22 22, 3 ,43, 16(EOF)                                            - third arr line
 
 */
 
@@ -31,13 +31,10 @@ File ReadArrays.txt:
 	FitFileLineToContainer<std::vector<int>, int>(Stream, Third, 3);
 
 
-	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Sort);
+	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::FindCollision);
+
+	std::vector<int>* CollisionResult = Transformer->TransformWithResult(Second, First,Third);
+	//ConsoleCon(CollisionResult);
 
 
-	//std::vector<int>* CollisionResult = Transformer->TransformThreeWithResult(First,Second,Third);
-	Transformer->Transform(First);
-	ConsoleCon(&First);
-
-	//1 1 1 16 3 21 21 2 43 11
-	//1 16 21 2 11
 }
