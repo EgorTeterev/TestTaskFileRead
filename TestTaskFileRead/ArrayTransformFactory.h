@@ -21,7 +21,7 @@ public:
 	{
 		switch (TransformName)
 		{
-		case(TransformClasses::FindCollision):
+		    case(TransformClasses::FindCollision):
 			{
 				return new FindCollisionTransformer<Container>();
 				break;

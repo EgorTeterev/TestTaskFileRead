@@ -1,92 +1,12 @@
 #include "PCH.h"
 #include "ArrayTransformFactory.h"
+#include "Templates.h"
+
 template<typename T>
 class ArrayTransformer;
 
 //enter your file path
 #define ARRAYFILEPATH "ReadArrays.txt"
-
-// "зчитувати масиви з файлу".
-void ReadLineFromFile(std::ifstream& Stream, std::string& String, const int LinesToIgnore = 0)
-{
-	Stream.seekg(0);
-
-	if (!Stream.is_open())
-	{
-		std::cerr << " Could not open file\r";
-		return;
-	}
-
-	if (LinesToIgnore<0)
-	{
-		std::cerr << " cant ignore negative value of lines\r";
-		return;
-	}
-
-
-	//skip file lines, that are already processed
-	if (LinesToIgnore > 0)
-	{
-		for (int i = 0; i < LinesToIgnore; ++i)
-		{
-			Stream.ignore(LONG_MAX, '\n');
-		}
-	}
-
-	std::getline(Stream, String, '\n');
-
-	return;
-}
-
-//"друкувати вміст масивів" (не зрозумів,з файлу,чи з std::vector)
-void LogLineFromFile(std::ifstream& Stream, int ArrayLine = 1)
-{
-	std::string Line;
-	if (ArrayLine > 0)
-	{
-		ReadLineFromFile(Stream, Line, ArrayLine - 1);
-	} 
-}
-
-template <typename Container, typename Elem>
-void FilterStringToContainer( Container& Con, std::string& String)
-{
-	FormatString(String);
-
-	//extract int,push to vector and delete all until next space
-	size_t Deleate = 0;
-	while ((Deleate = String.find(" ")) != std::string::npos)
-	{
-		int IntFromString = std::stoi(String, 0);
-		Con.push_back(IntFromString);
-
-		String.erase(0, Deleate+1);
-	}
-}
-
-//"щоб вони могли приймати будь-які типи даних, що ітеруються з STL"
-template <typename Container,typename Elem>
-void FitFileLineToContainer(std::ifstream& Stream, Container& Con, const int ArrayLine = 1)
-{
-	if (!Stream.is_open())
-	{
-		std::cerr << " Could not open file\n";
-		return;
-	}
-	std::string TempString;
-
-	if (ArrayLine > 0)
-	{
-		ReadLineFromFile(Stream, TempString, ArrayLine - 1);
-	}
-	else
-	{
-		ReadLineFromFile(Stream, TempString, ArrayLine);
-	}
-
-	FilterStringToContainer<Container,Elem>(Con, TempString);
-
-}
 
 
 int main()
@@ -98,8 +18,8 @@ int main()
 
 File ReadArrays.txt:
 12516,1,16 15, 3 610,32,161, 21 491,2 204 161 2151 43 1964 129 4939 921 5312 312 11 521\r\n - first arr line
-12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                       - second arr line
-105,270,15 21 3165, 32,15 215 22 22(EOF)                                  - third arr line
+12,125,7,16 3 1234,634,1 124, 74 21 43 23 2 11 22 1 1 24, 21\r\n                            - second arr line
+105,270,15 21 3165, 32,15 215 22 22, 3 ,43, 16(EOF)                                         - third arr line
 
 */
 
@@ -108,52 +28,16 @@ File ReadArrays.txt:
 
 	FitFileLineToContainer<std::vector<int>,int>(Stream, First);
 	FitFileLineToContainer<std::vector<int>, int>(Stream, Second,2);
-
-	//ConsoleVector(&First);
-	//ConsoleVector(&Second);
-
-	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::FindCollision);
-
-	std::vector<int>* CollisionResult = Transformer->TransformTwoWithResult(First,Second);
-
-	ConsoleVector(CollisionResult);
+	FitFileLineToContainer<std::vector<int>, int>(Stream, Third, 3);
 
 
+	ArrayTransformer<std::vector<int>>* Transformer = ArrayTransformFactory<std::vector<int>>::Create(TransformClasses::Sort);
+
+
+	//std::vector<int>* CollisionResult = Transformer->TransformThreeWithResult(First,Second,Third);
+	Transformer->TransformOne(First);
+	ConsoleCon(&First);
+
+	//1 1 1 16 3 21 21 2 43 11
+	//1 16 21 2 11
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//template <typename ArrType, typename ...Arrays>
-//void FitFileLinesToVectors(std::ifstream& Stream,size_t FirstLinesToRead,std::vector<ArrType>& Array,Arrays& ...OtherArraysToFit)
-//{
-//	if (!Stream.is_open())
-//	{
-//		std::cerr << " Could not open file\n";
-//		return;
-//	}
-//
-//	std::string TempString;
-//	ReadLineFromFile(Stream, TempString, FirstLinesToRead);
-//
-//
-//	FitFileLinesToVectors(Stream, FirstLinesToRead, OtherArraysToFit...);
-//}

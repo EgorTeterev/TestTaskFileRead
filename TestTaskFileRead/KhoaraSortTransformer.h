@@ -41,8 +41,8 @@ template <typename Container>
 void KhoaraSortTransformer<Container>::KhoaraSort(Container& Con, size_t left, size_t right)
 {
 	auto pivot = Con[left];
-	int l = left;
-	int r = right;
+	size_t l = left;
+	size_t r = right;
 
 	while (left < right)
 	{

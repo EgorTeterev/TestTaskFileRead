@@ -24,13 +24,8 @@ public:
 
 private:
 	ReverseSortedCollisionTransformer() = default;
-	void ReverseArray(Container& ConToReverse);
-	void SortArray(Container& ConToSort);
+	//void ReverseArray(Container& ConToReverse);
+	//void SortArray(Container& ConToSort);
 	//Container* FindCollision(Container& Con1, Container& Con2);
 };
-
-template<typename Container>
-inline void ReverseSortedCollisionTransformer<Container>::SortArray(Container& ConToSort)
-{
-}
 
