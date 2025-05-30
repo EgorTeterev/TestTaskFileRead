@@ -10,16 +10,16 @@ class FindCollisionTransformer : public ArrayTransformer<Container>
 	friend class ArrayTransformFactory;
 public:
 
-	virtual void TransformOne(Container& Con) {};
-	virtual void TransformTwo(Container& Con1, Container& Con2) {};
-	virtual void TransformThree(Container& Con1, Container& Con2, Container& Con3) {};
+	virtual void Transform(Container& Con) {};
+	virtual void Transform(Container& Con1, Container& Con2) {};
+	virtual void Transform(Container& Con1, Container& Con2, Container& Con3) {};
 
-	virtual Container* TransformOneWithResult(const Container& Con) override
+	virtual Container* TransformWithResult(const Container& Con) override
 	{
 		return nullptr;
 	};
 
-	virtual Container* TransformTwoWithResult(const Container& Con1, const  Container& Con2) override
+	virtual Container* TransformWithResult(const Container& Con1, const  Container& Con2) override
 	{
 		Container* Result = new Container();
 
@@ -32,7 +32,7 @@ public:
 	};
 
 	//first container will get the result
-	virtual Container* TransformThreeWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override
+	virtual Container* TransformWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override
 	{
 		Container* Result = new Container();
 

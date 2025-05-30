@@ -12,15 +12,15 @@ class ReverseSortedCollisionTransformer : public ArrayTransformer<Container>
 	friend class ArrayTransformFactory;
 public:
 
-	virtual void TransformOne(Container& Con) override {};
-	virtual void TransformTwo(Container& Con1, Container& Con2) override {};
-	virtual void TransformThree(Container& Con1, Container& Con2, Container& Con3) override {};
+	virtual void Transform(Container& Con) override {};
+	virtual void Transform(Container& Con1, Container& Con2) override {};
+	virtual void Transform(Container& Con1, Container& Con2, Container& Con3) override {};
 
-	virtual Container* TransformOneWithResult(const Container& Con) override { return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con) override { return nullptr; };
 
-	virtual Container* TransformTwoWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
 
-	virtual Container* TransformThreeWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override { return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override { return nullptr; };
 
 private:
 	ReverseSortedCollisionTransformer() = default;

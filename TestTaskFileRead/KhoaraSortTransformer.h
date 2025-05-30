@@ -9,29 +9,29 @@ class KhoaraSortTransformer : public ArrayTransformer<Container>
 	friend class ArrayTransformFactory;
 public:
 //"сортувати масиви без допомоги вбудованих функцій".
-	virtual void TransformOne(Container& Con) override
+	virtual void Transform(Container& Con) override
 	{
 		KhoaraSort(Con, 0, Con.size() - 1);
 	};
-	virtual void TransformTwo(Container& Con1, Container& Con2) override
+	virtual void Transform(Container& Con1, Container& Con2) override
 	{
 		KhoaraSort(Con1, 0, Con1.size() - 1);
 		KhoaraSort(Con2, 0, Con2.size() - 1);
 	};
-	virtual void TransformThree(Container& Con1, Container& Con2, Container& Con3) override
+	virtual void Transform(Container& Con1, Container& Con2, Container& Con3) override
 	{
 		KhoaraSort(Con1, 0, Con1.size() - 1);
 		KhoaraSort(Con2, 0, Con2.size() - 1);
 		KhoaraSort(Con3, 0, Con3.size() - 1);
 	};
 
-	virtual Container* TransformOneWithResult(const Container& Con) override { return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con) override { return nullptr; };
 
 	//first container will get the result
-	virtual Container* TransformTwoWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con1, const Container& Con2) override { return nullptr; };
 
 	//first container will get the result
-	virtual Container* TransformThreeWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override{ return nullptr; };
+	virtual Container* TransformWithResult(const Container& Con1, const Container& Con2, const Container& Con3) override{ return nullptr; };
 private:
 	KhoaraSortTransformer() = default;
 	void KhoaraSort(Container& Con, size_t left, size_t right);

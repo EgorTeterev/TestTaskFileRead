@@ -35,7 +35,7 @@ File ReadArrays.txt:
 
 
 	//std::vector<int>* CollisionResult = Transformer->TransformThreeWithResult(First,Second,Third);
-	Transformer->TransformOne(First);
+	Transformer->Transform(First);
 	ConsoleCon(&First);
 
 	//1 1 1 16 3 21 21 2 43 11
